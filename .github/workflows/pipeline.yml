@@ -24,6 +24,8 @@ jobs:
       run: npm install
     - name: Run unit tests
       run: npm run test:unit
+    - name: Display SoftUni user username
+      run: echo "ssllaavv"
 
   ui_tests:
 
@@ -32,7 +34,7 @@ jobs:
 
     steps:
       - name: Start the app 
-        run: npm run start 
+        run: npm run start & 
       - name: Run UI tests
         run: npm run test:ui
 
