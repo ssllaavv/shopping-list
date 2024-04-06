@@ -1,0 +1,29 @@
+
+name: ssllaavv pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build
+      uses: actions/checkout@v3
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: install packages
+      run: npm install
+    - name: start app
+      run: npm run start 
+    - name: unit tests
+      run: npm run test:unit
+
